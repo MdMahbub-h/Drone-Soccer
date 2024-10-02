@@ -142,9 +142,9 @@ class GameScene extends Phaser.Scene {
     this.b2.setBounce(0.5);
     this.b3.setBounce(0.5);
 
-    drones.push(this.rADrone);
+    // drones.push(this.rADrone);
     drones.push(this.rSDrone);
-    drones.push(this.bADrone);
+    // drones.push(this.bADrone);
     drones.push(this.bSDrone);
     drones.push(this.r1);
     drones.push(this.r2);
