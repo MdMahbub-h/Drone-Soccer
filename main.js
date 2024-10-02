@@ -166,7 +166,7 @@ class GameScene extends Phaser.Scene {
     this.createScoreAndTime();
   }
 
-  update() {
+ update() {
     if (this.timeLeft <= 0) {
       this.gameOver();
     }
@@ -184,6 +184,9 @@ class GameScene extends Phaser.Scene {
       this.rSDrone.setVelocityY(this.droneSpeed);
     }
 
+    if (!this.redSBack) {
+      followStrikerRed = true;
+    }
     if (followStrikerRed) {
       // Calculate direction for Assist to follow the Striker
       let dx = this.rSDrone.x - this.rADrone.x;
