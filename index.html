@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/assets/logo.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Drone Soccer</title>
+  </head>
+  <body>
+    <main>
+      <canvas id="gameCanvas"></canvas>
+      <div id="gameStartDiv" class="gameUi">
+        <img
+          style="height: 150px; width: 150px"
+          src="public/assets/logo.png"
+          alt=""
+        />
+        <h1 style="color: rgb(0, 21, 128)">Drone Soccer Game</h1>
+        <br />
+        <p style="font-size: x-large">
+          You must use the arrow keys to control your Red Striker <br />andscore
+          by arriving in the blue bar.After scoring, you <br />have toreturn and
+          touch the backline before scoring <br />again. <br /><b
+            >Be cautious of the enemy's defenses!!!</b
+          ><br />
+        </p>
+
+        <button id="gameStartBtn">Play</button>
+      </div>
+      <div id="gameEndDiv" class="gameUi">
+        <img
+          style="height: 150px; width: 150px"
+          src="public/assets/logo.png"
+          alt=""
+        />
+        <!-- <h1>Game Over</h1> -->
+        <h1 style="color: rgb(0, 21, 128)">
+          <span id="gameWinLoseSpan"> </span>
+        </h1>
+        <h2>Final Score : <br /><span id="gameEndScoreSpan"></span></h2>
+        <button id="refresh">Play Again</button>
+      </div>
+    </main>
+    <footer>
+      <footer>Copyright@Mahabub2024</footer>
+    </footer>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
