@@ -244,11 +244,10 @@ class GameScene extends Phaser.Scene {
         this.bADrone.setVelocity((dx / distance) * 100, (dy / distance) * 100);
       }
       // Check if the assist has crossed the midfield
-      if (this.bSDrone.x < 800) {
+      if (this.bSDrone.x < 800 && this.blueSBack) {
         followBlueStriker = false;
-        if (this.blueSBack) {
-          targetRedRandomDefense(); // Start targeting a defense player
-        }
+
+        targetRedRandomDefense(); // Start targeting a defense player
       }
     } else {
       // Move towards the target defense player
@@ -419,6 +418,7 @@ class GameScene extends Phaser.Scene {
         fontStyle: "bold",
         align: "center",
       });
+      followBlueStriker = true;
 
       setTimeout(() => {
         goalText1.destroy();
