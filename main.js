@@ -55,16 +55,16 @@ class GameScene extends Phaser.Scene {
   }
 
   preload() {
-    this.load.image("court", "public/assets/bg.jpg");
-    this.load.image("redPost", "public/assets/redBar.png");
-    this.load.image("bluePost", "public/assets/bluebar.png");
-    this.load.image("rDDrone", "public/assets/redDrone.png");
-    this.load.image("rADrone", "public/assets/redDroneA.png");
-    this.load.image("rSDrone", "public/assets/redDroneS.png");
-    this.load.image("bDDrone", "public/assets/blueDrone.png");
-    this.load.image("bADrone", "public/assets/blueDroneA.png");
-    this.load.image("bSDrone", "public/assets/blueDroneS.png");
-    this.load.image("bar", "public/assets/bar.png");
+    this.load.image("court", "/assets/bg.jpg");
+    this.load.image("redPost", "/assets/redBar.png");
+    this.load.image("bluePost", "/assets/bluebar.png");
+    this.load.image("rDDrone", "/assets/redDrone.png");
+    this.load.image("rADrone", "/assets/redDroneA.png");
+    this.load.image("rSDrone", "/assets/redDroneS.png");
+    this.load.image("bDDrone", "/assets/blueDrone.png");
+    this.load.image("bADrone", "/assets/blueDroneA.png");
+    this.load.image("bSDrone", "/assets/blueDroneS.png");
+    this.load.image("bar", "/assets/bar.png");
   }
 
   create() {
