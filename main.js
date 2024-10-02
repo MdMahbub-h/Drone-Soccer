@@ -437,7 +437,7 @@ class GameScene extends Phaser.Scene {
   }
 
   reload() {
-    this.timeLeft = 10;
+    this.timeLeft = 120;
     this.timeLeftText;
     this.timeEvent;
     this.secondsElapsed = 0;
