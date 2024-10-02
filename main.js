@@ -610,7 +610,7 @@ function moveOpponentTowardsBack(opponent) {
   let distance = Math.sqrt(dx * dx + dy * dy);
 
   if (distance > 1) {
-    opponent.setVelocity((dx / distance) * 160, (dy / distance) * 160); // Opponent advances towards the goal
+    opponent.setVelocity((dx / distance) * 200, (dy / distance) * 200); // Opponent advances towards the goal
   }
 }
 
