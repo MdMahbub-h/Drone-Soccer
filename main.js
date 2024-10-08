@@ -52,6 +52,9 @@ class GameScene extends Phaser.Scene {
     this.redSBack = true;
     this.blueGoal = 0;
     this.blueSBack = true;
+
+    this.spaceDownable = true;
+    this.followStriker = true;
   }
 
   preload() {
@@ -159,6 +162,10 @@ class GameScene extends Phaser.Scene {
     }
 
     this.cursor = this.input.keyboard.createCursorKeys();
+    this.spaceKey = this.input.keyboard.addKey(
+      Phaser.Input.Keyboard.KeyCodes.SPACE
+    );
+
     this.physics.add.collider(drones, drones);
     this.physics.add.collider(drones, bars, null, null, this);
     this.physics.add.collider(blueDefence, this.centreLine);
@@ -182,6 +189,18 @@ class GameScene extends Phaser.Scene {
     }
     if (down.isDown) {
       this.rSDrone.setVelocityY(this.droneSpeed);
+    }
+    if (this.spaceKey.isDown) {
+      if (this.spaceDownable) {
+        this.followStriker = false;
+        this.spaceDownable = false;
+        setTimeout(() => {
+          this.followStriker = true;
+        }, 2000);
+        setTimeout(() => {
+          this.spaceDownable = true;
+        }, 10000);
+      }
     }
 
     if (followStrikerRed) {
@@ -209,7 +228,7 @@ class GameScene extends Phaser.Scene {
         moveAssistTowardsTarget(targetDefenseBlue, this.rADrone);
       }
     }
-    if (this.rSDrone.x > 800) {
+    if (this.rSDrone.x > 800 && this.followStriker) {
       blueDefence.forEach((defense) => {
         moveBlueDefenseTowardsStriker(defense, this.rSDrone);
       });
@@ -263,7 +282,7 @@ class GameScene extends Phaser.Scene {
     } else {
       moveOpponentTowardsBack(this.bSDrone);
     }
-    if (this.bSDrone.x < 800) {
+    if (this.bSDrone.x < 800 && this.followStriker) {
       redDefence.forEach((defense) => {
         moveRedDefenseTowardsStriker(defense, this.bSDrone);
       });
@@ -281,7 +300,7 @@ class GameScene extends Phaser.Scene {
         let dyBS = Phaser.Math.Between(350, 600);
         let bSDistance = Math.sqrt(dxBs * dxBs + dyBS * dyBS);
         this.bSDrone.setVelocity(
-          (dxBs / bSDistance) * 200,
+          (dxBs / bSDistance) * 180,
           (dyBS / bSDistance) * 20
         );
       }
@@ -610,7 +629,7 @@ function moveOpponentTowardsBack(opponent) {
   let distance = Math.sqrt(dx * dx + dy * dy);
 
   if (distance > 1) {
-    opponent.setVelocity((dx / distance) * 200, (dy / distance) * 200); // Opponent advances towards the goal
+    opponent.setVelocity((dx / distance) * 200, (dy / distance) * 220); // Opponent advances towards the goal
   }
 }
 
